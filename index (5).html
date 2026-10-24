@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Little World for You ♡</title>
+  <style>
+    :root {
+      --cream: #fff8f0;
+      --blush: #f6dce2;
+      --pink: #d97996;
+      --deep-pink: #a84d6b;
+      --ink: #573b45;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; margin: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      overflow: hidden;
+    }
+
+    .page {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      position: relative;
+      isolation: isolate;
+      background:
+        radial-gradient(ellipse at 15% 18%, #f8dfe5 0, transparent 34%),
+        radial-gradient(ellipse at 85% 82%, #f5e4ce 0, transparent 32%),
+        var(--cream);
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #d68ba0;
+      font-size: clamp(18px, 3vw, 30px);
+      opacity: .8;
+      animation: float 4s ease-in-out infinite;
+      z-index: -1;
+    }
+    .s1 { top: 14%; left: 15%; }
+    .s2 { top: 22%; right: 17%; animation-delay: .8s; }
+    .s3 { bottom: 17%; left: 21%; animation-delay: 1.4s; }
+    .s4 { bottom: 20%; right: 14%; animation-delay: .4s; }
+
+    .cover {
+      width: min(720px, 100%);
+      text-align: center;
+      padding: clamp(28px, 7vw, 68px) clamp(20px, 5vw, 48px);
+      border: 1px solid #efcbd5;
+      border-radius: 8px;
+      background: rgba(255, 253, 249, .82);
+      box-shadow: 10px 12px 0 rgba(217, 121, 150, .13);
+      animation: arrive .8s ease both;
+    }
+
+    .tiny-label {
+      font: 11px/1.5 Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      color: var(--deep-pink);
+    }
+
+    .heart {
+      font-size: 34px;
+      color: var(--pink);
+      display: inline-block;
+      margin-bottom: 12px;
+      animation: heartbeat 1.8s ease-in-out infinite;
+    }
+
+    h1 {
+      color: var(--deep-pink);
+      font-weight: normal;
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1.03;
+      margin: 18px 0;
+    }
+
+    .subtitle {
+      max-width: 440px;
+      margin: 0 auto 30px;
+      font-size: clamp(16px, 2.4vw, 20px);
+      line-height: 1.7;
+      color: #795a64;
+    }
+
+    .next-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border: 0;
+      border-radius: 999px;
+      padding: 15px 25px;
+      background: var(--deep-pink);
+      color: white;
+      font: 14px Arial, sans-serif;
+      letter-spacing: .02em;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(168, 77, 107, .2);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .next-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(168, 77, 107, .25);
+    }
+    .signature {
+      margin-top: 28px;
+      font-size: 14px;
+      color: #b17b8c;
+      font-style: italic;
+    }
+
+    @keyframes heartbeat {
+      50% { transform: scale(1.14); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-12px) rotate(8deg); }
+    }
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(16px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <span class="sparkle s1" aria-hidden="true">✦</span>
+    <span class="sparkle s2" aria-hidden="true">♡</span>
+    <span class="sparkle s3" aria-hidden="true">✿</span>
+    <span class="sparkle s4" aria-hidden="true">✦</span>
+
+    <section class="cover" aria-labelledby="birthday-title">
+      <div class="heart" aria-hidden="true">♡</div>
+      <div class="tiny-label">a tiny birthday universe, made for you</div>
+      <h1 id="birthday-title">Happy Birthday,<br>my favorite human.</h1>
+      <p class="subtitle">
+        A little world full of memories, soft pink things, and all the love
+        you deserve. Ready to step inside?
+      </p>
+      <!-- The next page will be created as a separate file: memories.html -->
+      <a class="next-button" href="memories.html">
+        Open your little world <span aria-hidden="true">→</span>
+      </a>
+      <div class="signature">made with a whole lot of love ♡</div>
+    </section>
+  </main>
+</body>
+</html>
